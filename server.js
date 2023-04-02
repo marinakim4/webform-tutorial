@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-// const helmet = require("helmet");
+const helmet = require("helmet");
 // const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -12,8 +12,8 @@ const app = express();
 // app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
-// app.use(helmet());
-// app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 const mongoUri = process.env.MONGO_URI;
 const options = {
